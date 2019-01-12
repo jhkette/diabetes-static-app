@@ -1,0 +1,180 @@
+<!--Joseph Ketterer  -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Diabetes tool</title>
+        <link rel="stylesheet" href="styles.css">
+        <!-- I'm using a fontawesome arrow on the home page -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <style>
+        @import url('https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro');
+        </style>
+        <script src="diabetes.js"></script>
+        <script src="extra.js"></script>
+    </head>
+    <body>
+        <div class="main-nav">
+            <nav class="navcontainer">
+                <h1>Diabetes assessment tool</h1>
+                <uL class = "leftnav">
+                    <li class="contact-nav">
+                        <a href="index.html" id="current">Home</a>
+                    </li>
+                    <li class="contact-nav" >
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class ="icon"></div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row-numbers">
+                <ol class="content">
+                    <li class="contentitems">
+                        <p class="summary">Your age</p>
+                        <p>If you are older you are more at risk to get diabetes. Nevertheless, if you live a healthy lifestyle,
+                        you will still be in a low risk group.</p>
+                        <p class="arrowlink"><i class="fas fa-arrow-right"></i><a href="#" class="arrowlinks">Find out more</a></p>
+                    </li>
+                    <li class="contentitems">
+                        <p class="summary">Your BMI.</p>
+                        <p>Your bmi is your body mass divided by the square of the body height. It is expressed in units of kg/m2.</p>
+                        <p class="arrowlink"><i class="fas fa-arrow-right"></i><a href="#" class="arrowlinks">Find out more</a></p>
+                    </li>
+                    <li class="contentitems">
+                        <p class="summary">Your family</p>
+                        <p>Genetic factors can cause diabetes. If you have family members with th condition you may be more at risk.</p>
+                        <p class="arrowlink"><i class="fas fa-arrow-right"></i><a href="#" class="arrowlinks">Find out more</a></p>
+                    </li>
+                    <li class="contentitems">
+                        <p class="summary">Your diet</p>
+                        <p>A diet that is high in sugar has been shown to be linked to diabetes.</p>
+                        <p class="arrowlink"><i class="fas fa-arrow-right"></i><a href="#" class="arrowlinks">Find out more</a></p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="form">
+            <form action="post" class="diabetes" id="health">
+                <div class="item-container">
+                    <div class="display">
+                        <fieldset>
+                            <p class="formtext">How old are you? </p>
+                            <label class="rb fill">
+                                <input type="radio" name="age" class="radio" value=0 checked />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">1 - 25</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="age" class="radio" value=5 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">26-40</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="age" class="radio" value=8 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">41-60</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="age" class="radio" value=10 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">60+</span>
+                            </label>
+                        </fieldset>
+                    </div>
+                    <div class="display">
+                        <p class="formtext">What is your BMI?</p>
+                        <fieldset>
+                            <label class="rb fill">
+                                <input type="radio" name="BMI" class="radio" value=0 checked />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">0-25</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="BMI" class="radio" value=0 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">26-30</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="BMI" class="radio" value=9 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">31-35</span>
+
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="BMI" class="radio" value=10 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">35+</span>
+                            </label>
+                        </fieldset>
+                    </div>
+
+                    <div class="display">
+                        <p class="formtext">Does anybody in your family have diabetes?</p>
+                        <fieldset>
+                            <label class="rb fill">
+                                <input type="radio" name="family" class="radio" value=0 checked />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">No.</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="family" class="radio" value=7 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">Grandparent</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="family" class="radio" value=15 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">Sibling</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="family" class="radio" value=15 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">Parent</span>
+                            </label>
+                        </fieldset>
+                    </div>
+                    <div class="display">
+                        <p class="formtext"> How would you describe your diet?</p>
+                        <fieldset>
+                            <label class="rb fill">
+                                <input type="radio" name="diet" class="radio" value=0 checked />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">Low sugar</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="diet" class="radio" value=0 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">Normal sugar</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="diet" class="radio" value=7>
+                                <span class="rb-field"></span>
+                                <span class="rb-text">Quite high sugar?</span>
+                            </label>
+                            <label class="rb fill">
+                                <input type="radio" name="diet" class="radio" value=10 />
+                                <span class="rb-field"></span>
+                                <span class="rb-text">High sugar</span>
+                            </label>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" id="Submit" value="Calculate" class="button">
+                </div>
+                <div class="results">
+
+                </div>
+            </form>
+        </div>
+        <div class="footercontainer">
+            <footer class="footer">
+
+            </footer>
+        </div>
+    </body>
+</html>

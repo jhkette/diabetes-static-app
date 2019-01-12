@@ -1,8 +1,8 @@
 /* Joseph Ketterer */
 :root {
-    --secondary: #5ec3b6;
+    --secondary: #8FBC8F;
     --tertiary: #e2e2e2;
-    --black: #212020;
+    --black: #161515;
     --red: #fa8072;
 }
 
@@ -36,21 +36,26 @@ p {
     font-size: 1.8rem
 }
 
-h1 {
+/* h1 {
     color: var(--tertiary);
     font-size: 9rem;
     font-family: 'Oswald';
     position: absolute;
     top: 18rem;
     right: 50rem;
-}
+} */
 
-h2 {
-    padding-top: 10px;
+h1 {
+
     color: white;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     text-align: center;
     font-weight: 200;
+    width: 17rem;
+    height: auto;
+    text-align: left;
+    line-height: 2rem;
+    align-self: center;
 }
 
 
@@ -72,64 +77,78 @@ h4 {
     width: 75%;
     margin: auto;
     padding: 1.8rem;
-    max-width: 1000px;
+    max-width: 1400px;
 }
 
 .row-numbers{
     width: 75%;
     margin: auto;
     padding: 0rem;
-    max-width: 1000px;
+    max-width: 1400px;
 
 }
 
 /*---------------- Main navigation ------------- */
-.contact-nav {
-    background-color: var(--secondary);
-    width: 11rem;
-    padding-top: 10px;
-}
-
-.leftnav {
-    display: flex;
-    text-align: center;
-}
-
-
-
-.contact-nav:hover {
-    background-color: var(--tertiary);
-}
-
-#current {
-    background-color: var(--tertiary);
+.main-nav {
+    background-color: var(--black);
+    width: 100%;
 }
 
 .navcontainer {
     margin: auto;
-    width: 75%;
+    width: 90%;
     display: flex;
-    justify-content: space-between;
-    height: 4.5rem;
-    max-width: 1000px;
+    justify-content: flex-start;
+    min-height: 7.8rem;
+    max-width: 1400px;
+
 
 }
 
-.navcontainer a {
-    padding-top: 10px;
-    color: white;
-    font-size: 2.2rem;
+
+.leftnav {
+    display: flex;
     text-align: center;
-    font-weight: 200;
-    text-decoration: none;
-    color: var(--black);
+    align-self: center;
+}
 
+.leftnav li:first-child{
+    margin-left: 4rem;
 
 }
 
-.main-nav {
-    background-color: var(--black);
-    width: 100%;
+.leftnav li{
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    margin-left: 2rem;
+
+
+
+}
+.leftnav li a{
+font-size: 1.9rem;
+text-decoration: none;
+color: white;
+}
+.contact-nav:hover {
+
+}
+
+#current {
+border-bottom: 2px solid white;
+}
+
+
+.icon{
+    background-image: url(images/search1.svg);
+    background-size: 25px 25px;
+    margin-top: 2.7rem;
+    background-repeat: no-repeat;
+    width: 3rem;
+    margin-left: auto;
+
+
 }
 
 /*---------------- End of Main navigation ---------- */
@@ -138,8 +157,8 @@ h4 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: 70rem;
-    padding-top: 5rem;
+    min-height: 70rem;
+
     align-self: center;
 }
 
@@ -174,7 +193,7 @@ h4 {
 }
 
 
-ol {
+.content {
     counter-reset: listNumbering;
     list-style: none;
     padding: 0 1rem;
@@ -182,7 +201,7 @@ ol {
 }
 
 
-li {
+.contentitems {
     font-size: 1em;
     counter-increment: listNumbering;
     width: 18rem;
@@ -190,7 +209,7 @@ li {
     cursor: pointer;
 }
 
-li:before {
+.content li:before {
     content: counter(listNumbering, decimal);
     display: block;
     font-family: Oswald, sans-serif;
@@ -198,6 +217,7 @@ li:before {
     font-weight: 700;
     text-align: center;
     color: var(--black);
+    padding-top: 7rem;
 }
 
 .summary {
@@ -242,7 +262,7 @@ li:before {
 
     border-top: 2px dashed var(--black);
     border-bottom: 2px dashed var(--black);
-    max-width: 1000px;
+    max-width: 1400px;
 
 
 }
@@ -297,7 +317,7 @@ button:focus {outline:0;}
     counter-reset: section;
     position: relative;
     background-color: var(--tertiary);
-    max-width: 1000px;
+    max-width: 1400px;
 }
 
 .display {
@@ -434,7 +454,7 @@ button:focus {outline:0;}
 /* -----------------tooltip ------------*/
 .tool {
     position: absolute;
-    top: 67.5rem;
+    top: 70.7rem;
     margin-left: -2.3rem;
 }
 
@@ -585,7 +605,7 @@ input {
 }
 
 .focus {
-    background-color: #f8ffd4;
+    background-color: #eaffea;
 }
 
 .red {
