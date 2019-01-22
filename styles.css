@@ -1,4 +1,8 @@
-/* Joseph Ketterer */
+/* Joseph Ketterer
+JKETTE01
+Javascript
+Tobi Brodie
+*/
 :root {
     --secondary: #8FBC8F;
     --tertiary: #e2e2e2;
@@ -25,9 +29,10 @@ html {
 }
 
 body {
-    font-family: 'Source Sans Pro', 'helvtica', 'arial';
+    font-family: 'Source Sans Pro', helvetica, arial;
     font-size: 22px;
     font-weight: 500;
+    color: var(--black);
 }
 
 p {
@@ -35,15 +40,6 @@ p {
     font-weight: 300;
     font-size: 1.8rem
 }
-
-/* h1 {
-    color: var(--tertiary);
-    font-size: 9rem;
-    font-family: 'Oswald';
-    position: absolute;
-    top: 18rem;
-    right: 50rem;
-} */
 
 h1 {
 
@@ -60,7 +56,7 @@ h1 {
 
 
 h3 {
-    font-family: 'Oswald', 'Helvetica neue', arial, sans-serif;
+    font-family: 'Oswald', 'helvetica neue', arial, sans-serif;
     font-size: 3.5rem;
     border-bottom: 1px dashed var(--black);
     text-transform: uppercase;
@@ -72,21 +68,6 @@ h4 {
 }
 
 
-
-.row {
-    width: 75%;
-    margin: auto;
-    padding: 1.8rem;
-    max-width: 1400px;
-}
-
-.row-numbers{
-    width: 75%;
-    margin: auto;
-    padding: 0rem;
-    max-width: 1400px;
-
-}
 
 /*---------------- Main navigation ------------- */
 .main-nav {
@@ -148,7 +129,6 @@ border-bottom: 2px solid white;
     width: 3rem;
     margin-left: auto;
 
-
 }
 
 /*---------------- End of Main navigation ---------- */
@@ -166,6 +146,7 @@ border-bottom: 2px solid white;
     transition: all 1s;
     flex: .8;
     vertical-align: top;
+    z-index: 2;
 }
 
 .contentitems a {
@@ -242,6 +223,19 @@ border-bottom: 2px solid white;
     height: 1.8rem;
 }
 
+#home-container{
+    position: relative;
+}
+.circle {
+    border-radius:50%;
+    position: absolute;
+    z-index: 1;
+    opacity: .15;
+    background-color: rgb(6, 122, 18);
+    overflow: hidden;
+
+}
+
 /* --- end of intro text numbers display--- */
 /*---------------------- results ------------------------*/
 .results {
@@ -273,6 +267,7 @@ border-bottom: 2px solid white;
 .container {
     background-color: var(--secondary);
     width: 100%;
+    position: relative;
 }
 
 .form {
@@ -296,13 +291,11 @@ border-bottom: 2px solid white;
 
 
 .button:hover {
-    background-color: var(--black);
-    ;
     transition-duration: .3s;
     background-color: var(--secondary);
     cursor: pointer;
     color: var(--black);
-    ;
+
 }
 
 button:focus {outline:0;}
@@ -334,6 +327,21 @@ button:focus {outline:0;}
     font-weight: 900;
     padding: 0 0 7rem 0;
     margin: 0;
+
+}
+
+.row {
+    width: 75%;
+    margin: auto;
+    padding: 1.8rem;
+    max-width: 1400px;
+}
+
+.row-numbers{
+    width: 75%;
+    margin: auto;
+    padding: 0rem;
+    max-width: 1400px;
 
 }
 
@@ -605,7 +613,7 @@ input {
 }
 
 .focus {
-    background-color: #ebfceb;
+    background-color: #eaffea;
 }
 
 .red {
@@ -662,3 +670,60 @@ input {
 }
 
 /* ------------ end of popup css ---------------- */
+/* ------------ some media querires ---------------- */
+
+@media only screen and (max-width: 900px) {
+    .contentitems{
+        min-width: 20rem;
+    }
+    .leftnav li:first-child{
+        margin-left: 2rem;
+    }
+    .leftnav li:last-child{
+        margin-right: 1rem;
+    }
+    h1{
+        width: 12rem;
+    }
+    fieldset{
+        min-width: 20rem;
+    }
+    .container{
+        padding-bottom: 8rem;
+    }
+    .formcontainer{
+        width: 100%;
+    }
+    .contact-form{
+        width: 100%;
+    }
+    .forminput{
+        flex-direction: column;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+
+    }
+    .input-text{
+        padding: 1rem 0;
+    }
+    .error{
+        align-self: flex-start;
+        align-content: flex-start;
+
+      }
+     .label{
+         margin-top: 2.5rem;
+     }
+
+     .select-style {
+         margin-top: -1rem;
+         padding: 0;
+         }
+    .tool{
+        top: 90.5rem;
+    }
+    .main-nav{
+        padding: 2rem 0;
+    }
+}
