@@ -1,14 +1,18 @@
-// Joseph Ketterer
+/* Joseph Ketterer
+JKETTE01
+Javascript
+Tobi Brodie
+*/
 window.onload = start;
-
+/* Function start loads all functions and variables that need to be present on page load */
 function start() {
     var firstName = document.getElementById('first-name'); // variables for name hints
     var email = document.getElementById('email');
-
     nameHint(firstName, 'Enter your name'); // load name hints with relevant arguments.
     nameHint(email, 'Enter your email');
     switchToolTip(); // tooltip loaded
 
+    /* On blur validate field. */
     /* document.querySelectorAll returns a nodeList, which allows you to use the forEach mothod. This is why I am using it here.
     getelementbyClassName returns a HTMLCollection object which is less useful in this particular instance  */
     fields = document.querySelectorAll('.input-text'); // selecting all the form field elements
@@ -18,7 +22,7 @@ function start() {
             validateField(element, id); // validate field
         };
     });
-
+    /* On focus clear error signs */
     fields.forEach(function(element) {
         element.onfocus = function() { // if an element in node list is 'focused' on
             var id = this.id;
@@ -45,16 +49,17 @@ function validateField(field, id) {
             return valid;
         }
     } else {
+        /*A switch case statement to assign a valie to 're' based on the id argument that is passsed in */
         switch (true) {
             case (id == 'first-name'):
                 re = new RegExp(/^[a-z]{2,}$/i); // two or more letters
-                defaultText = 'This is not a valid first name';
+                defaultText = 'Your first name should be at least two charecters and only contain letters';
                 removeNameFocus(); // There is an initial focus on the first field which I am removing
                 break;
 
             case (id == 'second-name'):
-                re = new RegExp(/^[a-z][a-z-]{1,}$/i); // Must start with a letter then a minimun of one charecter which is a letter of '-';
-                defaultText = 'This is not a valid second name';
+                re = new RegExp(/^[a-z][a-z-]{1,}$/i); // Must start with a letter then a minimun of at least one other charecter which is a letter or '-';
+                defaultText = 'Your second name should be at least two charecters and only contain letters or a hyphen';
                 break;
 
             case (id == 'email'):
@@ -63,19 +68,21 @@ function validateField(field, id) {
                 Then end of string.
                 Inspiration from https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149 */
                 re = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
-                defaultText = 'This is not a valid email';
+                defaultText = 'This is not a valid format for an email';
                 break;
 
             case (id == 'health'):
-                re = new RegExp(/^(ZHA)(\d{6})$/); // Must start with capital ZHA then 6 digits.
-                defaultText = 'This is not a valid ZHA number';
+                re = new RegExp(/^(ZHA)(\d{6})$/); // Must start with capital ZHA (this is it was presented in specifications) then 6 digits.
+                defaultText = 'This should be the letters ZHA followed by six digits.';
                 break;
 
             case (id == 'telephone'):
                 re = new RegExp(/^\d{11}$/); // must be 11 digits no other charecters
-                defaultText = 'This is not a valid telephone number';
+                defaultText = 'This is not a valid telephone number. It should be eleven digits.';
                 break;
         }
+        /* I'm only validating the telephone field if there is an entry. If a user has focused on field but left it empty,  I am simply ignoring it, it is considered de facto valid.
+        This is because it is not mandatory. However, if there is an entry and it is incorrect an incorrect an error will show.  */
         if (id == 'telephone') {
             if (field.value !== '') {
                 if (re.test(field.value)) {
@@ -89,10 +96,7 @@ function validateField(field, id) {
                 }
             }
         } else {
-            /* first name contain only letters and is at least two charecters long, case insensitive  */
             if (re.test(field.value)) { // test value from field argument against regular expression
-                /* Remove initial focus on first name */
-                /* Remove error background if it exists (maybe add if statement??) */
                 return valid; // return valid
             } else {
                 document.getElementById(id + 'Error').innerHTML = defaultText; // add error message to id+ error (this is the span element in contact.html)
@@ -105,14 +109,15 @@ function validateField(field, id) {
     }
 }
 
+/*This function presents a name hint, removes it on focus, and re-adds hint on blur if field is left empty */
 function nameHint(field, message) {
 
-    field.value = message; // add default text and styling
-    field.style.color = "#aba9a9";
+    field.value = message;
+    field.style.color = "#aba9a9"; // add text and styling
     field.style.fontStyle = "italic";
 
     field.addEventListener('focus', function(event) {
-        if (this.value == message) {
+        if (this.value == message) { // remove hint message on focus
             this.value = "";
             this.style.color = "#000";
             this.style.fontStyle = "normal";
@@ -127,9 +132,9 @@ function nameHint(field, message) {
     });
 }
 
-
+/* This function loops through all form fields and uses the validateField function to check they are valid. If one returns valid, var valid is changed to false  */
 function processForm() {
-    event.preventDefault();
+    event.preventDefault(); //Make sure form doesn't submit
     clearAllErrors();
     var valid = true;
     var fields = document.querySelectorAll('.input-text');
@@ -161,7 +166,7 @@ function clearAllErrors() {
 }
 
 /* This removes the initial 'focus' class on the first name. Is called if the first name is valid
-NOTE: certain browsers add default backgrounds to form fields (ie chrome), so browsers defaults have been changed in css */
+NOTE: certain browsers add default backgrounds to form fields (ie chrome), so browsers defaults have been changed in css  */
 function removeNameFocus() {
     var firstNameField = document.getElementById('first-name');
     firstNameField.classList.remove('focus');
@@ -173,7 +178,7 @@ function addRedError(field) {
     field.classList.add('backgroundred');
 }
 
-/*This removes the red background if the form field is correct. It is called in the validation functions    */
+/*This removes the red background if the form field is correct. It is called in the validation functions */
 function removeRedError(field) {
     field.classList.remove('backgroundred');
 }

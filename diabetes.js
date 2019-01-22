@@ -1,14 +1,19 @@
-// Joseph Ketterer
+/* Joseph Ketterer
+JKETTE01
+Javascript
+Tobi Brodie */
 
 // call init function on window load
 window.onload = init;
 
-/* This functions loads the event listeners, listening for a click on a form button which will call clear form and submit form.
-Clear form is called first in case there is still an input in the 'results' div. Then the submit form function is called */
+/*init loads event listeners and other functions needed to start programme  */
 function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', calculateForm);
-
+    /* call decorative functions in extra.js (they need to be called in init because the dom
+    elements need to be loaded before they are called, otherwise errors are thrown).*/
+    openListItems();
+    drawCircles();
 }
 
 /* clears the results form. It's called on every click of the 'calculate button' */
@@ -22,7 +27,7 @@ function clearForm(e) {
 function calculateForm(e) {
     var values = []; // instantiate value array
     var warnings = []; // instantiate warning array
-    var radio = document.querySelectorAll('.radio'); //returns a node list of all items with the class name 'radio'
+    var radio = document.querySelectorAll('.radio'); //returns a node list of all items with the class name 'radio'. A node list enables the use of foreach loop
     radio.forEach(function(element) { // loop through each element in the node list
 
         if (element.checked == true) { // if the element is checked
@@ -37,16 +42,14 @@ function calculateForm(e) {
     function getSum(total, num) {
         return total + num; // accumulator + value
     }
-    // the sum of the array is assigned to a variable finalNumber
-    var finalNumber = values.reduce(getSum);
-    // call function to calculateResults with the finalNumber and warning array as arguments
-    calculateResults(finalNumber, warnings);
 
-    // // prevent defualt behaviour (ie don't submit the form)
-    event.preventDefault();
+    var finalNumber = values.reduce(getSum);    // the sum of the array is assigned to a variable finalNumber
+    calculateResults(finalNumber, warnings); // call function to calculateResults with the finalNumber and warning array as arguments
+    event.preventDefault(); // prevent defualt behaviour (ie don't submit the form)
 }
 
-/* This function uses the values from the prior function to create a 'warning' string if the number value is over 25. */
+/* This function uses the values from the prior function to append a message to the index page. It creates a 'warning' string if the number value is over 25 from
+the warning array if the number is over 25. The message is assigned based on the number value from the previous function */
 function calculateResults(number, warnings) {
     /* delcare warningText variable */
     var warningText = '';
@@ -75,7 +78,7 @@ function calculateResults(number, warnings) {
 
     /* A switch case statement that adds html to the parapgraph based on the number value. I'm using innerHTML here as opposed to creating
     a series of textnodes. Because there are links in two of the reponses this would involve creating text nodes for the text, then the link,
-     then the subsequent text. Using innerHTML in this instance creates far shorter and more legible code. */
+     then the subsequent text. Using innerHTML in this instance creates shorter and more legible code. */
     switch (true) {
         case number <= 15:
             results.innerHTML = 'Your results show that you currently have a low risk of developing diabetes. It is important that you maintain a healthy lifestyle in terms of diet and exercise.';
@@ -87,6 +90,5 @@ function calculateResults(number, warnings) {
             results.innerHTML = 'Your results show that you currently have a high risk of developing diabetes.' + warningText +
              'We advise that you contact the Health Authority to discuss your risk factors as soon as you can. Please fill in our <a href="contact.html">contact</a> form and a member of the Health Authority Diabetes Team will be in contact with you.';
     }
-    // append the paragraph to the div
-    divElement.appendChild(results);
+    divElement.appendChild(results);  // append the paragraph to the div
 }
