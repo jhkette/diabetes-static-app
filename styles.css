@@ -584,7 +584,8 @@ button:focus {outline:0;}
 }
 
 .select-style select {
-    padding-top: 1.5rem;
+    padding-top: 1.7rem;
+padding-left: .3rem;
     width: 160%;
     font-size: 1.7rem;
     line-height: 1.5rem;
