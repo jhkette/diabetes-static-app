@@ -45,7 +45,9 @@ Idea for circles came from the coding train https://www.youtube.com/watch?v=XATr
 function drawCircles() {
     var circleNumber = 8; // number of circles
     var container = document.getElementById('home-container'); // get container
-    var screenWidth = container.offsetWidth;  // get container width
+    var screenWidth = container.offsetWidth;
+    var screenHeight = container.offsetHeight;  // get container width
+    console.log(screenHeight);
     for (var i = 0; i < circleNumber; i++) { // create 8 circles
         var newCircle = document.createElement("div");
         newCircle.setAttribute("class", "circle");

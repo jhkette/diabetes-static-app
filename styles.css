@@ -3,6 +3,14 @@ JKETTE01
 Javascript
 Tobi Brodie
 */
+
+/* take out the padding from .contactform to make responsive */
+/* take out the padding from .contactform to make responsive */
+/* take out the padding from .contactform to make responsive */
+/* take out the padding from .contactform to make responsive */
+/* take out the padding from .contactform to make responsive */
+
+
 :root {
     --secondary: #8FBC8F;
     --tertiary: #e2e2e2;
@@ -77,7 +85,7 @@ h4 {
 
 .navcontainer {
     margin: auto;
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-content: flex-start;
     min-height: 7.8rem;
@@ -267,7 +275,8 @@ border-bottom: 2px solid white;
 .container {
     background-color: var(--secondary);
     width: 100%;
-    position: relative;
+    height: 100%;
+    position: absolute;
 }
 
 .form {
